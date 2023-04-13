@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
 
 projects_dict = [
@@ -20,7 +21,7 @@ projects_dict = [
 
 def home(request):
     context = {
-        'projects_dict': projects_dict
+        'projects_dict': Post.objects.all()
     }
     return render(request, 'blog/home.html', context)
 
